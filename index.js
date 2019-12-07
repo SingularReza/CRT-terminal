@@ -1,8 +1,10 @@
 var screen = document.getElementById('console');
 var monitor = document.getElementById('screen');
+var power = document.getElementById('power-icon');
 
 var username;
 var password;
+var diaryEntries = [];
 
 function switchScreen() {
         var windUp = document.getElementById('wind-up');
@@ -24,6 +26,8 @@ function switchScreen() {
         screen.classList.toggle('off');
         screen.classList.toggle('on');
         monitor.classList.toggle('active');
+        power.classList.toggle('powered');
+        document.getElementById('username').focus();
 }
 
 function saveUser(event) {
@@ -56,11 +60,27 @@ function execute(event) {
                 var result = document.createElement('p');
                 switch(commandText) {
                         case '!help':
-                                result.innerHTML='ls - get sitemap/menu<br/>game - start game</br>who - get details'
+                                result.innerHTML = 'ls - get sitemap/menu<br/>game - start game</br>diary - write diary entries<br/>who - get details'
                                 break;
                         case 'ls':
-                        case 'start-game':
-
+                                result.innerHTML = 'home<br/>entries<br/>goals<br/>about'
+                                break;
+                        case 'game':
+                                result.innerHTML = 'work in progress...'
+                                break;
+                        case 'diary':
+                                diary();
+                                break;
+                        case 'who':
+                                result.innerHTML = 'Consciousness floating through the net, AKA The Wired.<br/>Watch Serial Experiments Lain'
+                                break;
+                        case 'entries':
+                                diaryEntries.forEach(entry => {
+                                        entryDOM = document.createElement('span');
+                                        entryDOM.innerHTML = '> '+entry.name+': '+ entry.text+'<br/>';
+                                        result.appendChild(entryDOM);
+                                })
+                                break;
                         default:
                                 result.innerHTML = 'The command is wrong, check !help';
                 }
@@ -68,4 +88,21 @@ function execute(event) {
                 screen.appendChild(command);
                 command.lastChild.focus();
         }
+}
+
+function diary() {
+        var entryName = document.createElement('p');
+        entryName.innerHTML = '> Enter entry name: <input type="text"/>'
+        screen.appendChild(entryName);
+        entryName.lastChild.focus();
+
+        var entryText = document.createElement('p');
+        entryText.innerHTML = '> Enter entry text: <input type="text"/>'
+        screen.appendChild(entryText);
+        entryName.lastChild.focus();
+
+/*var diaryObject = {
+        name: entryName.lastChild.value,
+        text: entryText.lastChild.value
+}*/
 }

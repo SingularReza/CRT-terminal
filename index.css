@@ -27,11 +27,12 @@ body {
 .power-button {
     background: #A9A9A9;
     box-shadow: 0 1px 3px 0 #666;
-    height: 35px;
-    width: 130px;
+    height: 50px;
+    width: 50px;
     margin-top: 10px;
     outline: none;
     border: 0px;
+    padding: 10px;
 }
 
 #console {
@@ -173,4 +174,14 @@ input {
 
 .active {
     animation:flicker 0.15s infinite;
+}
+
+#power-icon {
+    height: 30px;
+    width: 30px;
+    margin-right: 25px;
+}
+
+.powered {
+    filter: invert(38%) sepia(99%) saturate(2172%) hue-rotate(95deg) brightness(98%) contrast(105%);
 }
