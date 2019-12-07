@@ -1,10 +1,29 @@
-var screen = document.getElementById('console')
+var screen = document.getElementById('console');
+var monitor = document.getElementById('screen');
+
 var username;
 var password;
 
 function switchScreen() {
+        var windUp = document.getElementById('wind-up');
+        var windDown = document.getElementById('wind-down');
+        var monitorOff = document.getElementById('monitor-off');
+        if(screen.className === 'off') {
+                windUp.play();
+                setTimeout(function() {
+                        windDown.play();
+                }, 12000);
+        }
+        else {
+                windUp.pause();
+                windDown.pause();
+                windUp.currentTime = 0;
+                windDown.currentTime = 0;
+                monitorOff.play();
+        }
         screen.classList.toggle('off');
         screen.classList.toggle('on');
+        monitor.classList.toggle('active');
 }
 
 function saveUser(event) {

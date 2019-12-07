@@ -116,23 +116,23 @@ body {
     }
 
     15% {
-        opacity: 0.9;
+        opacity: 0.98;
     }
 
     25% {
-        opacity: 0.95;
+        opacity: 0.97;
     }
 
     50% {
-        opacity: 0.9;
+        opacity: 0.99;
     }
 
     60% {
-        opacity: 0.95;
+        opacity: 1;
     }
 
     65% {
-        opacity: 0.85;
+        opacity: 0.98;
     }
 
     75% {
@@ -140,11 +140,11 @@ body {
     }
 
     95% {
-        opacity: 0.95;
+        opacity: 0.99;
     }
 
     100% {
-        opacity: 0.9;
+        opacity: 0.97;
     }
 }
 
@@ -154,7 +154,7 @@ body {
 }
 
 .on {
-    animation: turn-on 4s linear;
+    animation: turn-on 12s linear;
     animation-fill-mode:forwards;
 }
 
@@ -169,4 +169,8 @@ input {
     padding-left: 10px;
     font-family: 'VT323', monospace;
     font-size: 20px;
+}
+
+.active {
+    animation:flicker 0.15s infinite;
 }
